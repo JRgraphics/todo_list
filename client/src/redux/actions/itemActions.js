@@ -1,16 +1,38 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from "../types/types";
+import {
+  GET_ITEMS_REQUEST,
+  GET_ITEMS_SUCCESS,
+  GET_ITEMS_ERROR,
+} from "../types/types";
 import axios from "axios";
 
 export const getItems = () => (dispatch) => {
+  dispatch(getItemsRequest());
   axios
     .get("api/items")
     .then((res) => {
-      dispatch({
-        type: GET_ITEMS,
-        payload: res.data,
-      });
+      dispatch(getItemsSuccess(res.data));
     })
-    .catch((err) => {});
+    .catch((err) => dispatch(getItemsError(err)));
+};
+
+export const getItemsRequest = () => {
+  return {
+    type: GET_ITEMS_REQUEST,
+  };
+};
+
+export const getItemsSuccess = (items) => {
+  return {
+    type: GET_ITEMS_SUCCESS,
+    payload: items,
+  };
+};
+
+export const getItemsError = (error) => {
+  return {
+    type: GET_ITEMS_ERROR,
+    payload: error,
+  };
 };
 
 export const addItem = (item) => (dispatch) => {

@@ -1,24 +1,33 @@
-import { v4 as uuid } from "uuid";
-
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from "../types/types";
+import {
+  GET_ITEMS_REQUEST,
+  GET_ITEMS_SUCCESS,
+  GET_ITEMS_ERROR,
+} from "../types/types";
 
 const initialState = {
   items: [],
   loading: false,
+  error: "",
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_ITEMS:
+    case GET_ITEMS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_ITEMS_SUCCESS:
       return {
         ...state,
         items: action.payload,
+        loading: false,
       };
-
-    case ADD_ITEM:
+    case GET_ITEMS_ERROR:
       return {
         ...state,
-        items: [action.payload, ...state.item],
+        error: action.payload,
+        loading: false,
       };
 
     default:

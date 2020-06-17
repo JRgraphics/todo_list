@@ -1,21 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { getItems } from "../../redux/actions/itemActions";
 import Item from "../Item/Item";
 
 function Itemlist() {
-  const input_el = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getItems());
+    dispatch(getItems()); // eslint-disable-next-line
   }, []);
   const todo_items = useSelector((state) => state.item.items, shallowEqual);
 
   console.log(todo_items);
-  return (
+  return !todo_items ? (
+    <div class="loader">Loading...</div>
+  ) : (
     <div className="Itemlist">
       <ul className="list-group">
-        {todo_items && todo_items.map((item) => <Item item={item} />)}
+        {todo_items.map((item) => (
+          <Item key={item._id} item={item} />
+        ))}
       </ul>
     </div>
   );

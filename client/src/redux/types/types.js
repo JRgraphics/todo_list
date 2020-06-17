@@ -1,3 +1,3 @@
-export const GET_ITEMS = "GET_ITEMS";
-export const ADD_ITEM = "ADD_ITEM";
-export const DELETE_ITEM = "DELETE_ITEM";
+export const GET_ITEMS_REQUEST = "GET_ITEMS_REQUEST";
+export const GET_ITEMS_SUCCESS = "GET_ITEMS_SUCCESS";
+export const GET_ITEMS_ERROR = "GET_ITEMS_ERROR";
