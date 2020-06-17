@@ -10,10 +10,11 @@
 
 .add-item-button {
   background: transparent;
+  border: 2px solid #ffffff;
 }
 
 .add-item-button img {
   position: relative;
-  height: 100%;
-  width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }

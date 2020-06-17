@@ -21,7 +21,7 @@ function AddItem() {
   return (
     <div className="add-item-container row">
       <input
-        className="add-item-input dark-bg p-2"
+        className="add-item-input dark-bg p-2 col-10"
         ref={input_el}
         type="text"
         onKeyDown={(e) => {
@@ -30,7 +30,7 @@ function AddItem() {
           }
         }}
       />
-      <button className="add-item-button" onClick={() => handleAddItem()}>
+      <button className="add-item-button col-2" onClick={() => handleAddItem()}>
         <img src={add_icon} alt={"icon"} />
       </button>
     </div>

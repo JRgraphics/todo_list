@@ -1,5 +1,6 @@
 .todo-list-button {
   background: transparent;
+  border: 2px solid #ffffff;
 }
 
 .todo-list-button img {
