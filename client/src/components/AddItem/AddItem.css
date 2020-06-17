@@ -1,0 +1,19 @@
+.add-item-input {
+  font-size: 14pt;
+  border: 2px solid #ffffff;
+}
+
+.add-item-input:focus {
+  background: #ffffff;
+  color: #270f63;
+}
+
+.add-item-button {
+  background: transparent;
+}
+
+.add-item-button img {
+  position: relative;
+  height: 100%;
+  width: auto;
+}
